@@ -23,29 +23,29 @@ const fastify = Fastify({logger: true});
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 await fastify.register(cors, {
-    origin: '*',
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Authorization']
+  origin: '*',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 })
 
 // static setup for the frontend assets
 fastify.register(fastifyStatic, {
-    root: path.join(__dirname, '/../frontend/dist'),
-    prefix: '/',
+  root: path.join(__dirname, '/../frontend/dist'),
+  prefix: '/',
 });
 
 // articles route
 fastify.register(articles);
 
 fastify.get('/', (req, reply) => {
-    reply.sendFile('index.html');
+  reply.sendFile('index.html');
 });
 
 // Run the server!
-fastify.listen({port: 3000}, function (err, address) {
-    if (err) {
-        fastify.log.error(err)
-        process.exit(1)
-    }
-    // Server is now listening on ${address}
+fastify.listen({port: process.env.PORT || 3000}, function (err, address) {
+  if (err) {
+    fastify.log.error(err)
+    process.exit(1)
+  }
+  // Server is now listening on ${address}
 })
