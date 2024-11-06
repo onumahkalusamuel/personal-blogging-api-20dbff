@@ -1,3 +1,3 @@
 export const appConfig = {
-    apiBaseUrl: 'http://localhost:3000/',
+    apiBaseUrl: process.env.ENV !== 'PROD' ? 'http://localhost:10000/' : '',
 };

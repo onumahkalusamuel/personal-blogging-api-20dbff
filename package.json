@@ -13,7 +13,7 @@
   "scripts": {
     "build": "yarn workspaces foreach --all -pvi run build",
     "build:backend": "yarn workspace backend build",
-    "build:frontend": "yarn workspace frontend build && copyfiles -u 1 frontend/dist/**/* backend/web",
+    "build:frontend": "ENV=PROD yarn workspace frontend build && copyfiles -u 1 frontend/dist/**/* backend/web",
     "start": "yarn build:frontend && yarn workspace backend start",
     "dev": "yarn build:frontend && yarn workspaces foreach --all -pvi run dev",
     "format": "yarn workspaces foreach --all run prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
