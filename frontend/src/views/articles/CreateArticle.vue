@@ -42,10 +42,9 @@
 
 </template>
 <script setup lang="ts">
-import {useRoute, useRouter} from "vue-router";
-import {onMounted, ref} from "vue";
+import {useRouter} from "vue-router";
+import {ref} from "vue";
 import {IArticle} from "../../interfaces";
-import {useArticlesStore} from "../../stores/articles.store.ts";
 import {apiCreateArticle} from "../../services/articles.service.ts";
 
 const router = useRouter();

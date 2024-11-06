@@ -1,0 +1,13 @@
+# Node modules should not be tracked
+/node_modules/    export-ignore
+
+# Yarn-related files that are not used with node_modules
+/.yarn/**         export-ignore
+/.yarn/releases/* export-ignore
+/.yarn/plugins/**/* export-ignore
+/.pnp.*           export-ignore
+
+# Other files that should be treated as binary or generated (if applicable)
+/*.log             text
+/*.lock            text
+/.env*             text

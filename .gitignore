@@ -1,0 +1,18 @@
+# Ignore node_modules directory
+node_modules/
+
+# Ignore all Yarn-related files and directories
+.yarn/*
+# But keep the following directories (if you have specific needs for them)
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+# If not using zero-installs, ensure cache is ignored
+# If using zero-installs, uncomment the line below and set up global cache accordingly
+# !.yarn/cache
+
+# Ignore Plug'n'Play files since they are not used
+.pnp.*

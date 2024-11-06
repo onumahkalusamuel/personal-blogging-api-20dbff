@@ -14,21 +14,32 @@ And with those endpoints, you’ve covered the basic CRUD operations (Create, Re
 import Fastify from 'fastify'
 import articles from './routes/articles.js';
 import cors from '@fastify/cors';
+import * as fastifyStatic from '@fastify/static';
+import * as path from 'path';
+import {fileURLToPath} from 'url';
+
 
 const fastify = Fastify({logger: true});
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
 await fastify.register(cors, {
     origin: '*',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization']
 })
 
+// static setup for the frontend assets
+fastify.register(fastifyStatic, {
+    root: path.join(__dirname, '/../frontend/dist'),
+    prefix: '/',
+});
+
 // articles route
 fastify.register(articles);
 
-// Declare a route
-fastify.get('/', function (request, reply) {
-    reply.send({hello: 'world'})
-})
+fastify.get('/', (req, reply) => {
+    reply.sendFile('index.html');
+});
 
 // Run the server!
 fastify.listen({port: 3000}, function (err, address) {

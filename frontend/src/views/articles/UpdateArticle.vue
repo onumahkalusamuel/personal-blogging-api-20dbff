@@ -45,10 +45,8 @@
 import {useRoute, useRouter} from "vue-router";
 import {onMounted, ref} from "vue";
 import {IArticle} from "../../interfaces";
-import {useArticlesStore} from "../../stores/articles.store.ts";
 import {apiGetArticle, apiUpdateArticle} from "../../services/articles.service.ts";
 
-const articlesStore = useArticlesStore();
 const {id} = useRoute().params;
 const router = useRouter();
 
@@ -64,7 +62,7 @@ const updateArticle = async () => {
 }
 
 onMounted(async () => {
-  article.value = await apiGetArticle(id as unknown as number);;
+  article.value = await apiGetArticle(id as unknown as number);
   if (!article.value.title) {
     alert('Article not found.');
     await router.push({name: 'index'});

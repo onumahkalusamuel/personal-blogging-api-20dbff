@@ -1,0 +1,23 @@
+{
+  "name": "personal-blogging-api-20dbff",
+  "version": "1.0.0",
+  "description": "Personal Blogging API",
+  "repository": "git@github.com:onumahkalusamuel/personal-blogging-api-20dbff.git",
+  "author": "Onumah Kalu Samuel <onumahkalusamuel@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "scripts": {
+    "build": "yarn workspaces foreach --all -pvi run build",
+    "build:backend": "yarn workspace backend build",
+    "build:frontend": "yarn workspace frontend build",
+    "start": "yarn build:frontend && yarn workspace backend start",
+    "dev": "yarn build:frontend && yarn workspaces foreach --all -pvi run dev",
+    "format": "yarn workspaces foreach --all run prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+    "lint": "yarn workspaces foreach --all run eslint \"{src,apps,libs,test}/**/*.ts\" --fix"
+  },
+  "packageManager": "yarn@4.5.1"
+}
