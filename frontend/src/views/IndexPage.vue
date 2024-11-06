@@ -9,7 +9,6 @@ const router = useRouter();
 const deleteArticle = async (id: number) => {
   if (!confirm('This article will be deleted permanently. Continue?')) return;
   await apiDeleteArticle(id);
-  alert('Article deleted successfully.');
   const index = articles.articles.findIndex(a => a.id === id);
   articles.articles.splice(index, 1);
 }

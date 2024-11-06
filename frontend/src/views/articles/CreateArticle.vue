@@ -2,7 +2,7 @@
   <div style="display: flex; justify-content: space-between; align-items: center">
     <h2>Create Article</h2>
     <div>
-      <button @click="router.push({name: 'index'})">&leftarrow; back</button>
+      <button @click="router.push({name: 'index'})">&leftarrow; articles</button>
     </div>
   </div>
   <hr/>
@@ -60,7 +60,6 @@ const createArticle = async () => {
   if (!article.value.title || !article.value.content || !article.value.author) return alert('Please fill in required fields.');
   const create = await apiCreateArticle(article.value);
   if (create.id) {
-    alert('Article created successfully.');
     await router.push({name: 'view-article', params: {id: create.id}});
   }
 }

@@ -2,7 +2,7 @@
   <div style="display: flex; justify-content: space-between; align-items: center; text-align: left">
     <h2>Update Article: {{ article.title }}</h2>
     <div>
-      <button @click="router.push({name: 'index'})">&leftarrow; back</button>
+      <button @click="router.push({name: 'index'})">&leftarrow; articles</button>
     </div>
   </div>
   <hr/>
@@ -56,7 +56,6 @@ const updateArticle = async () => {
   if (!article.value.title || !article.value.content || !article.value.author) return alert('Please fill in required fields.');
   const create = await apiUpdateArticle(id as unknown as number, article.value);
   if (create.id) {
-    alert('Article updated successfully.');
     await router.push({name: 'view-article', params: {id: create.id}});
   }
 }

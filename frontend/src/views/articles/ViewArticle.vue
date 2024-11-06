@@ -2,7 +2,7 @@
   <div style="display: flex; justify-content: space-between; align-items: center">
     <h2>{{ article.title }}</h2>
     <div>
-      <button @click="router.push({name: 'index'})">&leftarrow; back</button>
+      <button @click="router.push({name: 'index'})">&leftarrow; articles</button>
     </div>
   </div>
   <hr/>
