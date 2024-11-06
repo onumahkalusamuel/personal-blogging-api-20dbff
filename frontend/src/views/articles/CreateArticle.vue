@@ -8,6 +8,7 @@
   <hr/>
   <form @submit.prevent="createArticle">
     <table width="100%" border="1" cellpadding="10px">
+      <tbody>
       <tr>
         <th>Title</th>
         <td>
@@ -20,20 +21,19 @@
           <textarea v-model="article.content" style="width: 90%;" rows="15" required/>
         </td>
       </tr>
-
       <tr>
         <th>Author</th>
         <td>
           <input v-model="article.author" style="width: 90%; height: 25px" required/>
         </td>
       </tr>
-
       <tr>
         <th>Tag</th>
         <td>
           <input v-model="article.tag" style="width: 90%; height: 25px"/>
         </td>
       </tr>
+      </tbody>
     </table>
     <div style="display: flex; width: 100%; margin: 10px 0">
       <button>submit</button>
