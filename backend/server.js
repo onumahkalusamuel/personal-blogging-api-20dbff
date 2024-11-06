@@ -30,7 +30,7 @@ await fastify.register(cors, {
 
 // static setup for the frontend assets
 fastify.register(fastifyStatic, {
-  root: path.join(__dirname, '/../frontend/dist'),
+  root: path.join(__dirname, 'web/dist'),
   prefix: '/',
 });
 
